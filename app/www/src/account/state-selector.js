@@ -33,9 +33,9 @@
 			selectedItems = [item];
 		};
 
-		vm.cancel = function () {
-			$location.path('/tab/account');
-		};
+		// vm.cancel = function () {
+		// 	$location.path('/tab/account');
+		// };
 
 		vm.save = function () {
 			listSelectorManager.setSelectedItems(storageGroup, selectedItems);
