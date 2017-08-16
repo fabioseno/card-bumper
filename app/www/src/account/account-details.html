@@ -1,0 +1,112 @@
+<ion-view view-title="Meu cartão de visita">
+	<ion-content>
+		<form name="vm.form" data-ng-submit="vm.saveDetails();" novalidate>
+			<div class="list">
+				<div class="item item-divider">
+					Dados pessoais
+				</div>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Nome completo</span>
+					<input type="text" name="name" required placeholder="Nome *" data-ng-model="vm.user.name">
+					<div ng-messages="vm.form.name.$error" multiple ng-if="vm.form.$submitted">
+                        <div ng-message="required">Campo obrigatório</div>
+                    </div>
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">E-mail</span>
+					<input type="email" name="email" placeholder="E-mail" data-ng-model="vm.user.email">
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Telefone</span>
+					<input type="tel" name="phone" required placeholder="Telefone *" data-ng-model="vm.user.phone" data-ui-mask="(99) ?999999999" ui-options="{ clearOnBlur: false }" ui-mask-placeholder="" model-view-value="true">
+					<div ng-messages="vm.form.phone.$error" multiple ng-if="vm.form.$submitted">
+                        <div ng-message="required">Campo obrigatório</div>
+                    </div>
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Celular</span>
+					<input type="tel" name="mobilePhone" required placeholder="Celular *" data-ng-model="vm.user.mobilePhone" data-ui-mask="(99) ?999999999" ui-options="{ clearOnBlur: false }" ui-mask-placeholder="" model-view-value="true">
+					<div ng-messages="vm.form.mobilePhone.$error" multiple ng-if="vm.form.$submitted">
+                        <div ng-message="required">Campo obrigatório</div>
+                    </div>
+				</label>
+			</div>
+			<div class="list">
+				<div class="item item-divider">
+					Dados profissionais
+				</div>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">CRM</span>
+					<input type="tel" name="crm" required maxlength="8" placeholder="CRM *" data-ng-model="vm.user.crm">
+					<div ng-messages="vm.form.crm.$error" multiple ng-if="vm.form.$submitted">
+                        <div ng-message="required">Campo obrigatório</div>
+                    </div>
+				</label>
+				<div class="item item-input item-floating-label" data-ng-click="vm.selectCrmState()">
+					<span class="input-label">Estado</span>
+					<input type="text" name="crmState" readonly required placeholder="Estado *" data-ng-model="vm.user.crmState" data-ng-show="false">
+					<span class="input-like-label" data-ng-class="{ 'has-input': vm.crmState !== 'Estado *' }" data-ng-bind="vm.crmState"></span>
+					<div ng-messages="vm.form.crmState.$error" multiple ng-if="vm.form.$submitted">
+						<div ng-message="required">Campo obrigatório</div>
+					</div>
+				</div>
+				<label class="item item-input item-text-wrap item-floating-label" data-ng-click="vm.selectExpertise();">
+					<span class="input-label">Especialidades</span>
+					<input type="text" name="expertises" readonly required placeholder="Estado *" data-ng-model="vm.user.expertises" data-ng-show="false">
+					<span class="input-like-label" data-ng-class="{ 'has-input': vm.expertises !== 'Especialidades *' }" data-ng-bind="vm.expertises"></span>
+					<div ng-messages="vm.form.expertises.$error" multiple ng-if="vm.form.$submitted">
+						<div ng-message="required">Campo obrigatório</div>
+					</div>
+				</label>
+			</div>
+			<div class="list">
+				<div class="item item-divider">
+					Endereço do consultório
+				</div>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">CEP</span>
+					<input type="tel" placeholder="CEP" data-ng-model="vm.user.zipCode" data-ui-mask="99999-999" ui-options="{ clearOnBlur: false }" ui-mask-placeholder="" model-view-value="true" ng-change="vm.loadAddress();">
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Endereço</span>
+					<input type="text" placeholder="Endereço" data-ng-model="vm.user.address">
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Número</span>
+					<input type="text" placeholder="Número" data-ng-model="vm.user.number">
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Complemento</span>
+					<input type="text" placeholder="Complemento" data-ng-model="vm.user.address2">
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Bairro</span>
+					<input type="text" placeholder="Bairro" data-ng-model="vm.user.district">
+				</label>
+				<label class="item item-input item-floating-label">
+					<span class="input-label">Cidade</span>
+					<input type="text" name="city" required placeholder="Cidade *" data-ng-model="vm.user.city">
+					<div ng-messages="vm.form.city.$error" multiple ng-if="vm.form.$submitted">
+						<div ng-message="required">Campo obrigatório</div>
+					</div>
+				</label>
+				<div class="item item-input item-floating-label" data-ng-click="vm.selectAddressState()">
+					<span class="input-label">Estado</span>
+					<input type="text" name="addressState" readonly required placeholder="Estado *" data-ng-model="vm.user.addressState" data-ng-show="false">
+					<span class="input-like-label" data-ng-class="{ 'has-input': vm.crmState !== 'Estado *' }" data-ng-bind="vm.addressState"></span>
+					<div ng-messages="vm.form.addressState.$error" multiple ng-if="vm.form.$submitted">
+						<div ng-message="required">Campo obrigatório</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-message warning-text-message" data-ng-show="!vm.form.$valid">
+				Existem pendências no formulário
+			</div>
+			<div class="padding-horizontal">
+				<button type="submit" class="button button-block button-app">
+					Salvar
+				</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,52 @@
+<div class="flip-container" data-ng-class="{ hover: card.front }">
+	<div class="flipper">
+		<div class="front">
+			<div class="card padding" data-ng-click="flip();">
+				<div class="picture">
+					<i class="icon ion-person"></i>
+				</div>
+				<div class="info">
+					<h2 class="name">{{ card.name }}</h2>
+					<span class="expertise">{{ getExpertises() }}</span>
+					<span class="crm">CRM {{ card.crm }} / {{ card.crmState }}</span>
+				</div>
+			</div>
+		</div>
+		<div class="back">
+			<div class="card padding" data-ng-click="flip();">
+				<div class="back-info">
+					<div class="card-options" data-ng-click="deleteCard();$event.stopPropagation();":>
+						<i class="icon ion-android-more-vertical"></i>
+					</div>
+					<div class="info-group" data-ng-show="card.email">
+						<div class="group-icon">
+							<i class="icon ion-ios-email"></i>
+						</div>
+						<div class="group-info">
+							<span class="info email">{{ card.email }}</span>
+						</div>
+					</div>
+					<div class="info-group">
+						<div class="group-icon">
+							<i class="icon ion-ios-telephone"></i>
+						</div>
+						<div class="group-info">
+							<span class="info phone">{{ card.phone }}</span>
+							<span class="info phone">{{ card.mobilePhone }}</span>
+						</div>
+					</div>
+					<div class="info-group">
+						<div class="group-icon">
+							<i class="icon ion-home"></i>
+						</div>
+						<div class="group-info">
+							<span class="info address">{{ card.address }} {{ card.number }} <span data-ng-show="card.address2">/</span> {{ card.address2 }}</span>
+							<span class="info address">{{ card.district }} - {{ card.zipCode }}</span>
+							<span class="info address">{{ card.city }} - {{ card.addressState }}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+<ion-view view-title="Especialidades">
+	<ion-nav-bar class="bar bar-header bar-app">
+		<ion-nav-buttons side="left">
+			<button class="button back-button buttons button-clear header-item" ng-click="vm.cancel()">
+				<i class="icon ion-ios-arrow-back"></i>
+			</button>
+		</ion-nav-buttons>
+		<ion-nav-buttons side="right">
+			<button class="button back-button buttons button-clear header-item" ng-click="vm.save()">
+				<i class="icon ion-ios-checkmark-empty"></i>
+			</button>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+	<div class="bar bar-subheader item-input-inset bar-subheader-app">
+		<label class="item-input-wrapper padding">
+			<i class="icon ion-ios-search placeholder-icon"></i>
+			<input type="search" placeholder="Pesquisar" data-ng-model="vm.filter">
+		</label>
+	</div>
+	<ion-content class="has-subheader-app">
+		<div class="list">
+			<div class="item item-icon-right item-text-wrap" data-ng-repeat="expertise in vm.expertises | filter : vm.filter" data-ng-click="vm.selectItem(expertise);">
+				<p>{{expertise.name }}</p>
+				<i class="icon ion-ios-checkmark-empty" data-ng-show="vm.isItemSelected(expertise);"></i>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

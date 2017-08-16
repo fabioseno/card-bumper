@@ -1,0 +1,268 @@
+/* Empty. Add your own CSS if you like */
+.bar.bar-app {
+    border-color: #b2b2b2;
+    background-color: #008e55;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
+    color: #fff;
+}
+
+.bar-subheader-app {
+	padding: 0;
+	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2), 0 3px 9px 0 rgba(0,0,0,0.19);
+}
+
+.bar-subheader-app .item-input-wrapper {
+	background-color: #fff;
+}
+
+.has-subheader-app {
+	top: 88px;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader-app {
+	top: 64px;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .has-subheader-app {
+	top: 108px;
+}
+
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-color-active-positive .tab-item.activated {
+	color: #008e55;
+}
+
+ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.activated {
+	border-color: #008e55;
+    color: #008e55;
+}
+
+.input-label {
+	color: #008e55;
+	white-space: nowrap;
+}
+
+.button-clear.back-button {
+	color: #fff;
+}
+
+.button.button-app {
+    border-color: transparent;
+    background-color: #008e55;
+    color: #fff;
+}
+
+input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {
+	background-color: transparent;
+}
+
+.input-like-label {
+	font-size: 14px;
+	color: #111;
+	margin-top: 6px;
+    display: block;
+}
+
+.input-like-label:not(.has-input) {
+	color: #aaaaaa;
+}
+
+/* Validation */
+div[ng-messages] {
+    font-size: 12px;
+    color: #e42112;
+}
+
+div[ng-messages] :first-child {
+    margin-top: 5px;
+}
+
+.text-message {
+	text-align: center;
+    margin: 12px;
+    font-size: 13px;
+    color: #00552b;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px dashed #00552b;
+}
+
+.warning-text-message {
+	color: #e42112;
+	border-color: #e42112;
+}
+
+/* Card */
+business-card.item {
+	height: 190px;
+    border-width: 0px;
+    margin: 0;
+    padding: 0px 5px;
+}
+
+business-card .card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height:170px;
+	margin-top: 10px;
+	box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2), 0 3px 9px 0 rgba(0,0,0,0.19);
+}
+
+business-card div.card div.picture {
+	float: left;
+	width: 30%;
+    text-align: right;
+}
+
+business-card div.card div.picture i {
+	font-size: 70px;
+    color: #e3e3e3;
+}
+
+business-card div.card div.info {
+	float: left;
+	width: 70%;
+	color: #454545;
+	margin-left: 20px;
+	font-size: 14px;
+}
+
+business-card div.card div.info span {
+	display: block;
+	white-space: normal;
+}
+
+business-card div.card div.info .name {
+	font-size: 15px;
+    margin-bottom: 0px;
+}
+
+business-card div.card div.info .expertise {
+	font-size: 12px;
+}
+
+business-card div.card div.info .crm {
+	font-size: 13px;
+}
+
+business-card div.card div.back-info {
+	color: #454545;
+	font-size: 14px;
+}
+
+business-card div.card div.back-info .info-group {
+	display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+business-card div.card div.back-info .info-group .group-icon {
+	float: left;
+	margin-right: 10px;
+	line-height: 15px;
+}
+
+business-card div.card div.back-info .info-group .group-icon i {
+	font-size: 20px;
+}
+
+business-card div.card div.back-info .info-group .group-info {
+	float: left;
+}
+
+business-card div.card div.back-info .info-group .group-info span.info {
+	display: block;
+	line-height: 15px;
+	font-size: 13px;
+}
+
+business-card div.card div.back-info .card-options {
+	position: absolute;
+    right: 15px;
+    font-size: 26px;
+    top: 10px;
+    padding: 10px;
+}
+
+.flip-container {
+	perspective: 3000px;
+}
+
+/* flip the pane when hovered */
+.flip-container.hover .flipper {
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 100%;
+}
+
+.flipper {
+	transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	-webkit-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+
+.back {
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+/* Action Sheet */
+.platform-android .action-sheet-backdrop.active {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.platform-android .action-sheet {
+	align-content: center;
+	margin:auto;
+	max-width: 96vw;
+	border-radius: 5px;
+	/*margin: 0;*/
+	margin-bottom: 10px;
+}
+
+.platform-android .action-sheet .action-sheet-title, .platform-android .action-sheet .button {
+	text-align: left;
+	/*border-color: #e2e2e2;*/
+	font-size: 16px;
+	color: inherit;
+}
+
+.platform-android .action-sheet .action-sheet-title {
+	font-size: 14px;
+	padding: 16px;
+	color: #666;
+}
+
+.platform-android .action-sheet .button {
+	border-color: #e2e2e2;
+	padding-left: 16px;
+	color: #104e89;
+}
+
+.platform-android .action-sheet .button.destructive {
+	color: red;
+}
+
+.platform-android .action-sheet-cancel {
+	display: block !important;
+}
