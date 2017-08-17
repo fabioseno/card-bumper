@@ -14,6 +14,7 @@
     },
     "dependencies": {
         "call-number": "git+https://github.com/Rohfosho/CordovaCallNumberPlugin.git",
+        "cordova-android": "^6.2.3",
         "cordova-ios": "^4.4.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
@@ -40,6 +41,7 @@
             "cordova-plugin-email-composer": {}
         },
         "platforms": [
+            "android",
             "ios"
         ]
     }

@@ -4,7 +4,7 @@
 	function BusinessCardsService($window, $q, $http) {
 		var listenToShake = function (onShake) {
 			if ($window.shake) {
-				$window.shake.startWatch(onShake, 20 /*, onError */);
+				$window.shake.startWatch(onShake, 60 /*, onError */);
 			}
 		},
 

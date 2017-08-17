@@ -1,16 +1,9 @@
 <ion-view view-title="{{ vm.title }}">
-	<!-- <ion-nav-bar class="bar bar-header bar-app"> -->
-	<!-- <ion-nav-buttons side="left">
-			<button class="button back-button buttons button-clear header-item" ng-click="vm.cancel()">
-				<i class="icon ion-ios-arrow-back"></i>
-			</button>
-		</ion-nav-buttons> -->
 	<ion-nav-buttons side="right">
 		<button class="button back-button buttons button-clear header-item" ng-click="vm.save()">
-				<i class="icon ion-ios-checkmark-empty"></i>
-			</button>
+			<i class="icon ion-ios-checkmark-empty"></i>
+		</button>
 	</ion-nav-buttons>
-	<!-- </ion-nav-bar> -->
 	<div class="bar bar-subheader-app">
 		<div class="item-input-inset">
 			<label class="item-input-wrapper">
@@ -19,7 +12,6 @@
 			</label>
 		</div>
 	</div>
-	<!-- <ion-content> -->
 	<ion-content class="has-subheader-app">
 		<div class="list">
 			<div class="item item-icon-right item-text-wrap" data-ng-repeat="state in vm.states | filter : vm.filter" data-ng-click="vm.selectItem(state);">

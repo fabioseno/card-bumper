@@ -94,10 +94,10 @@ div[ng-messages] :first-child {
 
 /* Card */
 business-card.item {
-	height: 190px;
+	height: 185px;
     border-width: 0px;
     margin: 0;
-    padding: 0px 5px;
+    padding: 0px;
 }
 
 business-card .card {
@@ -111,7 +111,7 @@ business-card .card {
 
 business-card div.card div.picture {
 	float: left;
-	width: 30%;
+	width: 25%;
     text-align: right;
 }
 
@@ -122,9 +122,9 @@ business-card div.card div.picture i {
 
 business-card div.card div.info {
 	float: left;
-	width: 70%;
+	width: 75%;
 	color: #454545;
-	margin-left: 20px;
+	margin-left: 15px;
 	font-size: 14px;
 }
 
@@ -134,21 +134,22 @@ business-card div.card div.info span {
 }
 
 business-card div.card div.info .name {
-	font-size: 15px;
+	font-size: 16px;
     margin-bottom: 0px;
 }
 
 business-card div.card div.info .expertise {
-	font-size: 12px;
+	font-size: 13px;
 }
 
 business-card div.card div.info .crm {
-	font-size: 13px;
+	font-size: 12px;
 }
 
 business-card div.card div.back-info {
 	color: #454545;
 	font-size: 14px;
+	width: 80%;
 }
 
 business-card div.card div.back-info .info-group {
@@ -173,19 +174,20 @@ business-card div.card div.back-info .info-group .group-info {
 
 business-card div.card div.back-info .info-group .group-info span.info {
 	display: block;
-	line-height: 15px;
-	font-size: 13px;
+	line-height: 16px;
+	font-size: 14px;
 }
 
 business-card div.card div.back-info .card-options {
 	position: absolute;
-    right: 10px;
-    font-size: 26px;
+    font-size: 28px;
     top: 10px;
-    padding-right: 5px;
-    padding-left: 50px;
-    padding-bottom: 20px;
-    padding-top: 10px;
+    right: 10px;
+    padding: 12px 15px 20px 40px;
+}
+
+.action-sheet .button {
+	font-size: 19px;
 }
 
 .flip-container {

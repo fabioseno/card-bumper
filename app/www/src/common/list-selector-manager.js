@@ -15,18 +15,11 @@
 			getSelectedItems = function (group) {
 				return angular.copy(selectedItems[group] || []);
 			};
-			
-			// isItemSelected = function (group, callback) {
-			// 	var items = getSelectedItems(group);
-
-			// 	return callback(items);
-			// };
 
 		return {
 			openListView: openListView,
 			setSelectedItems: setSelectedItems,
 			getSelectedItems: getSelectedItems
-			//isItemSelected: isItemSelected
 		};
 	}
 
