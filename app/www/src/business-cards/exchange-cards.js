@@ -1,19 +1,34 @@
 (function () {
 	'use strict';
 
-	function ExchangeCards($rootScope, businessCardsService, toaster, loader) {
-		var vm = this;
+	function ExchangeCards($scope, $window, businessCardsService, toaster, loader) {
+		var vm = this,
+
+			watchID,
+
+			watchPosition = function () {
+				watchID = $window.navigator.geolocation.watchPosition(function (position) {
+					businessCardsService.setPosition(position.coords);
+				},
+					function (error) {
+						businessCardsService.setPosition();
+					},
+					{
+						maximumAge: 10000,
+						timeout: 5000,
+						enableHighAccuracy: true
+					}
+				);
+			};
 
 		vm.searchBusinessCards = function () {
-			var businessCard = businessCardsService.getMyBusinessCard();
-
 			loader.show();
 
-			businessCardsService.searchBusinessCard(businessCard).then(function (businessCards) {
+			businessCardsService.searchBusinessCards().then(function (businessCards) {
 				loader.hide();
-				
-				if (businessCards.length > 0) {
-					businessCardsService.addBusinessCard(businessCards[0]).then(function (status) {
+
+				for (var i = 0; i < businessCards.length; i++) {
+					businessCardsService.addBusinessCard(businessCards[i]).then(function (status) {
 						if (status === 'new') {
 							toaster.show('Cartão adicionado com sucesso');
 						} else {
@@ -30,13 +45,21 @@
 			vm.searchBusinessCards();
 		}
 
-		$rootScope.$on('SHAKE_GESTURE', function () {
+		$scope.$on('SHAKE_GESTURE', function () {
 			vm.searchBusinessCards();
+		});
+
+		$scope.$on('$ionicView.beforeEnter', function () {
+			watchPosition();
+		});
+
+		$scope.$on('$ionicView.beforeLeave', function () {
+			$window.navigator.geolocation.clearWatch(watchID);
 		});
 
 	}
 
-	ExchangeCards.$inject = ['$rootScope', 'businessCardsService', 'toaster', 'loader'];
+	ExchangeCards.$inject = ['$scope', '$window', 'businessCardsService', 'toaster', 'loader'];
 
 	angular.module('app').controller('exchangeCards', ExchangeCards);
 

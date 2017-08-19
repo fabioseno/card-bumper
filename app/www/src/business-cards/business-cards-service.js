@@ -2,11 +2,13 @@
 	'use strict';
 
 	function BusinessCardsService($window, $q, $http) {
-		var listenToShake = function (onShake) {
-			if ($window.shake) {
-				$window.shake.startWatch(onShake, 60 /*, onError */);
-			}
-		},
+		var currentPosition,
+
+			listenToShake = function (onShake) {
+				if ($window.shake) {
+					$window.shake.startWatch(onShake, 60 /*, onError */);
+				}
+			},
 
 			hashCode = function (value) {
 				var hash = 0, i, chr;
@@ -27,7 +29,12 @@
 				return $q.when($window.localStorage.setItem('CARD_DETAILS', JSON.stringify(businessCard)));
 			},
 
-			searchBusinessCard = function (businessCard) {
+			setPosition = function (coordinates) {
+				currentPosition = coordinates;
+			},
+
+			searchBusinessCards = function () {
+				var businessCard = getMyBusinessCard();
 				var deviceId = new Date().getTime();
 
 				if ($window.device) {
@@ -36,7 +43,8 @@
 
 				var data = {
 					from: deviceId,
-					cardDetails: businessCard
+					cardDetails: businessCard,
+					coordinates: currentPosition
 				};
 
 				return $http.post('https://card-bumper.herokuapp.com/search', data).then(function (result) {
@@ -96,7 +104,9 @@
 			getMyBusinessCard: getMyBusinessCard,
 			saveMyBusinessCard: saveMyBusinessCard,
 
-			searchBusinessCard: searchBusinessCard,
+			setPosition: setPosition,
+
+			searchBusinessCards: searchBusinessCards,
 			addBusinessCard: addBusinessCard,
 			removeBusinessCard: removeBusinessCard,
 			listBusinessCards: listBusinessCards
